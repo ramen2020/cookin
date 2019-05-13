@@ -12,13 +12,21 @@ class UsersController extends Controller
     
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(10);
+        
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $favorite_users = $user->feed_favorites()->orderBy('created_at', 'desc')->paginate(10);
+            $users = User::orderBy('id', 'desc')->paginate(10);
 
-        return view('users.index', [
-            'users' => $users,
-        ]);
-    
-    }
+            $data = [
+                'user' => $user,
+                'users' => $users,
+                'favorite_users' => $favorite_users,
+            ];
+        }
+        return view('users.index', $data);
+    } 
     
     public function show($id)
     {
@@ -26,10 +34,12 @@ class UsersController extends Controller
         $data = [];
         $user = User::find($id);
         $deliveries = $user->deliveries()->orderBy('created_at', 'desc')->paginate(10);
+        $count_followers = $user->followers()->count();
         
         $data = [
             'user' => $user,
             'deliveries' => $deliveries,
+            'count_followers' => $count_followers,
         ];
     
         return view('users.show', $data);
@@ -105,5 +115,6 @@ class UsersController extends Controller
 
         return redirect('/');
     }
-
+    
+    
 }
