@@ -2,7 +2,7 @@
 
 @section('content')
     @if (Auth::check())
-        <h1>新着出品一覧</h1>
+  
         
     @else
         <div class="center jumbotron">
