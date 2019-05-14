@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Delivery;
 use App\User;
+use App\Message;
 
 class DeliveriesController extends Controller
 {
@@ -44,10 +45,13 @@ class DeliveriesController extends Controller
         $data = [];
         $user = User::find($id);
         $delivery = Delivery::find($id);
+        $messages = $delivery->messages()->orderBy('created_at', 'desc')->paginate(10);
+    
         
         $data = [
             'user' => $user,
             'delivery' => $delivery,
+            'messages' => $messages,
         ];
     
         return view('deliveries.show', $data);
@@ -78,9 +82,8 @@ class DeliveriesController extends Controller
             'place' => $request->place,
         ]);
 
-        return redirect('/');
+        return redirect('/')->with('flash_message', '出品しました！！！');
     }
-    
     public function edit($id)
     {
         $delivery = Delivery::find($id);
@@ -112,19 +115,20 @@ class DeliveriesController extends Controller
             'price' => $request->price,
         ]);
         
-         return redirect('/');
+         return redirect('/')->with('flash_message', '出品を更新しました！');
         
         
     }
     
     public function destroy($id)
     {
+        
         $delivery = \App\Delivery::find($id);
 
         if (\Auth::id() == $delivery->user_id) {
             $delivery->delete();
         }
 
-        return back();
+        return redirect('/')->with('flash_message', '出品を削除しました。');
     }
 }

@@ -85,4 +85,10 @@ class User extends Authenticatable
         return User::whereIn('id', $favorite_user_ids);
     }
     
+   public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    
 }

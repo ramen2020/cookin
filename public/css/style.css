@@ -1,14 +1,62 @@
-/*.profile-wrapper{*/
-/*    height:900px;*/
-/*    width:900px;*/
-/*    background-color:#F3FFD8;*/
-/*    margin:auto;*/
-/*}*/
+html body {
+    
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    color:#444;
+}
 
-/*.Mypicture {*/
-/*    margin:60px auto;*/
-/*    border-radius:100%;*/
-/*    width:30%;*/
-/*    height:30%;*/
-/*    background-color:green;*/
-/*}*/
+.top-wrapper {
+
+  background-image:url(../img/top.img.jpeg);
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  height:850px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#top-font {
+    padding:30px;
+    letter-spacing: .08em;
+    line-height:1.5;
+    font-size: 50px;
+    color:rgba(255,255,255,1);
+    font-family: 'Baloo Bhai', cursive;
+
+}
+
+.nav-font{
+    font-family: 'Baloo Bhai', cursive;
+}
+
+
+.dropdown-toggle {
+  border-color:blue;
+
+  
+  background-color: #fff;
+}
+
+.signup-btn {
+  display: inline-block;
+  padding:15px 20px 11px 25px;
+  border: 2px solid #008489;
+  background-color:#FFF;
+  font-size: 16px;
+  color: #008489;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: .4s;
+  text-align:center;
+  opacity:0.9;
+}
+
+.signup-btn:hover {
+  background-color: #008489;
+  border-color: #008489;
+  color: #FFF;
+  opacity:1;
+
+}
