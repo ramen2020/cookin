@@ -25,10 +25,10 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 
 
-// ユーザ機能(ユーザー詳細表示)　　あとで編集つける
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update','destroy']]);
     Route::resource('deliveries', 'DeliveriesController');
+    Route::resource('messages', 'MessagesController', ['only' => ['store','destroy']]);
     
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('user.favorite');
@@ -36,5 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('favorites', 'FavoritesController@favorites')->name('users.favorites');
         Route::get('followers', 'FavoritesController@followers')->name('users.followers');
     });
-});
+    
+   
 
+});

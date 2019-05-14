@@ -19,10 +19,9 @@
                 {!! Form::close() !!}
             @endif
             
-        <div class="w-25">
+        <div class="d-flex">
             @include('favorite_follow.favorite_button', ['user' => $user])
-            
-            <p>高評価： <span class="badge badge-secondary">{{ $count_followers }}</span></p>
+             <p class="ml-3 mt-2">高評価： <span class="badge badge-secondary">{{ $count_followers }}</span></p>
             
         </div>
             

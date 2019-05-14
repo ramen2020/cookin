@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Delivery;
+use App\Message;
 
 
 class UsersController extends Controller
@@ -18,6 +19,7 @@ class UsersController extends Controller
             $user = \Auth::user();
             $favorite_users = $user->feed_favorites()->orderBy('created_at', 'desc')->paginate(10);
             $users = User::orderBy('id', 'desc')->paginate(10);
+
 
             $data = [
                 'user' => $user,
@@ -35,6 +37,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $deliveries = $user->deliveries()->orderBy('created_at', 'desc')->paginate(10);
         $count_followers = $user->followers()->count();
+       
         
         $data = [
             'user' => $user,
@@ -97,7 +100,7 @@ class UsersController extends Controller
         ]);
 
 
-        return redirect('/');
+        return redirect('/')->with('flash_message', 'プロフィールを更新しました！');;
         
     }
     
