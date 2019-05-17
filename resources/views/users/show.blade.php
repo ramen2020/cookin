@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>・ユーザー情報</h1>
+    <h1 class="text-center mt-5 mb-4">ユーザー情報</h1>
     <div class="profile-wrapper border mb-5 px-3 py-3">
         <div class="Mypicture"></div>
         <h3>名前：{{ $user->name }}</h3>
          
        
         <!--コンテンツカラム追加-->
-         <h3>私の説明：{{ $user->content }}</h3>
+         <h3>簡単な自己紹介：{{ $user->content }}</h3>
         
             @if (Auth::id() == $user->id)
                 {!! link_to_route('users.edit', 'このプロフィールを編集', ['id' => $user->id], ['class' => 'btn btn-light']) !!}
@@ -27,10 +27,11 @@
             
     </div>
     <div>
-        <h1>・ユーザーの出品</h1>
+        <h1 class="text-center mb-4">出品一覧</h1>
         @if (count($deliveries) > 0)
             @include('deliveries.deliveries', ['deliveries' => $deliveries])
-        @endif        
+        @endif 
+        {{ $deliveries->render('pagination::bootstrap-4') }}
     </div>
                 
     

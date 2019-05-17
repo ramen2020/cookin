@@ -5,7 +5,9 @@
         <h1>マイプロファイルへんしゅうがめん</h1>
         <div class="profile-wrapper">
             <div class="Mypicture"></div>
-             {!! Form::model($delivery, ['route' => ['deliveries.update', $delivery->id], 'method' => 'put']) !!}
+             {!! Form::model($delivery, ['route' => ['deliveries.update', $delivery->id], 'method' => 'put','enctype' => 'multipart/form-data']) !!}
+             
+             <input type="file" name="file">
              
                 <div class="form-group">
                     {!! Form::label('name', '商品名:') !!}

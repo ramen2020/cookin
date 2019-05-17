@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Delivery;
 use App\User;
 use App\Message;
+
 
 class DeliveriesController extends Controller
 {
@@ -19,7 +21,7 @@ class DeliveriesController extends Controller
          
             $data = [];
             $user = \Auth::user();
-            $deliveries = Delivery::orderBy('created_at', 'desc')->paginate(10);
+            $deliveries = Delivery::orderBy('created_at', 'desc')->paginate(20);
             
             $data = [
                 'user' => $user,
@@ -45,13 +47,14 @@ class DeliveriesController extends Controller
         $data = [];
         $user = User::find($id);
         $delivery = Delivery::find($id);
-        $messages = $delivery->messages()->orderBy('created_at', 'desc')->paginate(10);
-    
+        $messages = $delivery->messages()->orderBy('created_at', 'desc')->paginate(6);
+       
         
         $data = [
             'user' => $user,
             'delivery' => $delivery,
             'messages' => $messages,
+           
         ];
     
         return view('deliveries.show', $data);
@@ -60,7 +63,7 @@ class DeliveriesController extends Controller
     public function create()
     {
         $delivery = new Delivery;
-
+        
         return view('deliveries.create', [
             'delivery' => $delivery,
         ]);
@@ -69,17 +72,22 @@ class DeliveriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:191',
-            'content' => 'required|max:191',
-            'price' => 'required|max:191',
-            'place' => 'required|max:191',
+            'name' => 'required|max:20',
+            'content' => 'required|max:500',
+            'price' => 'required|max:100000|numeric',
+            'place' => 'required|max:20',
         ]);
+        
+        $file = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $file, 'public');
+        $url = Storage::disk('s3')->url($path);
 
         $request->user()->deliveries()->create([
             'name' => $request->name,
             'content' => $request->content,
             'price' => $request->price,
             'place' => $request->place,
+            'img' => $url,
         ]);
 
         return redirect('/')->with('flash_message', '出品しました！！！');
@@ -101,18 +109,24 @@ class DeliveriesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' =>'required|max:255',
-            'content' => 'required|max:191',
-            'place' => 'required|max:191',
-            'price' => 'required|max:191',
+            'name' =>'required|max:20',
+            'content' => 'required|max:500',
+            'price' => 'required|max:100000|numeric',
+            'place' => 'required|max:20',
         ]);
         
         
+        $file = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $file, 'public');
+        $url = Storage::disk('s3')->url($path);
+       
+     
         Delivery::find($id)->update([
             'name' => $request->name,
             'content' => $request->content,
             'place' => $request->place,
             'price' => $request->price,
+            'img' => $url,
         ]);
         
          return redirect('/')->with('flash_message', '出品を更新しました！');
@@ -131,4 +145,6 @@ class DeliveriesController extends Controller
 
         return redirect('/')->with('flash_message', '出品を削除しました。');
     }
+    
+    
 }
