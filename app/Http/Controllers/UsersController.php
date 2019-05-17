@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Delivery;
 use App\Message;
+use Illuminate\Support\Facades\Storage;
 
 
 class UsersController extends Controller
@@ -58,10 +59,15 @@ class UsersController extends Controller
             'content' => 'required|max:500',
         ]);
         
+        $file = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $file, 'public');
+        $url = Storage::disk('s3')->url($path);
+        
         $request->user()->create([
             'name' => $request->name,
             'content' => $request->content,
             'email' => $request->email,
+            'user_picture' => $url,
             
         ]);
 
@@ -93,11 +99,16 @@ class UsersController extends Controller
            
         ]);
         
+        $file = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $file, 'public');
+        $url = Storage::disk('s3')->url($path);
+        
        
        $request->user()->update([
             'name' => $request->name,
             'content' => $request->content,
             'email' => $request->email,
+            'user_picture' => $url,
         ]);
 
 

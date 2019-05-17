@@ -5,10 +5,12 @@
         <h1>マイプロファイルへんしゅうがめん</h1>
         <div class="profile-wrapper">
             <div class="Mypicture"></div>
-             {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}
+             {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put' ,'enctype' => 'multipart/form-data']) !!}
+             
+             <input type="file" name="file">
              
                 <div class="form-group">
-                        {!! Form::label('name', '名前') !!}
+                       {!! Form::label('name', '名前') !!}
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
                 

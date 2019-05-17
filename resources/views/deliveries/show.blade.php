@@ -9,7 +9,7 @@
         <div class="mt-3 mb-3 mx-auto">
  
             
-                <img src="{{ $delivery->img }}" class="w-100 h-100 text-center my-5">
+                <img src="{{ $delivery->img }}" class="w-100 h-100 my-5">
         </div>
             
         <div>
