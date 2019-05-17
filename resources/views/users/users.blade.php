@@ -14,6 +14,7 @@
         @endforeach
     </ul>
 @endif
+{{ $users->render('pagination::bootstrap-4') }}
 
 <h1 class="mb-5 border-bottom">お気に入りしているユーザー一覧</h1>
 @if (count($favorite_users) > 0)
@@ -30,3 +31,4 @@
         @endforeach
     </ul>
 @endif
+{{ $users->render('pagination::bootstrap-4') }}

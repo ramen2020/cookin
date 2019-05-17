@@ -8,17 +8,20 @@
              {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}
              
                 <div class="form-group">
-                        {!! Form::label('name', '名前:') !!}
+                        {!! Form::label('name', '名前') !!}
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
-                <div class="form-group">
-                        {!! Form::label('content', '簡単な自己紹介:') !!}
-                        {!! Form::text('content', null, ['class' => 'form-control']) !!}
-                </div>            
-                <div class="form-group">
-                        {!! Form::label('email', 'メアド:') !!}
+                
+               <div class="form-group">
+                        {!! Form::label('email', 'メールアドレス') !!}
                         {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                </div>  
+                </div> 
+                
+                <div class="form-group">
+                        {!! Form::label('content', '簡単な自己紹介') !!}
+                        {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                </div>            
+  
                  {!! Form::submit('更新', ['class' => 'btn btn-light']) !!}
                  
             {!! Form::close() !!}

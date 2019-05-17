@@ -53,9 +53,9 @@ class UsersController extends Controller
     {
         
         $this->validate($request, [
-            'name' =>'required|max:255',
-            'email' =>'required|max:255',
-            'content' => 'required|max:191',
+            'name' =>'required|max:15',
+            'email' =>'required|max:150',
+            'content' => 'required|max:500',
         ]);
         
         $request->user()->create([
@@ -87,9 +87,10 @@ class UsersController extends Controller
     {
         
         $this->validate($request, [
-            'name' =>'required|max:255',
-            'content' => 'required|max:191',
-            'email' => 'required|max:191',
+            'name' =>'required|max:15',
+            'email' => 'required|max:150',
+            'content' => 'required|max:500',
+           
         ]);
         
        

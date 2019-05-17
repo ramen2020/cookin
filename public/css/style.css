@@ -1,62 +1,85 @@
-html body {
-    
+  html body {
+      
     font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     color:#444;
-}
+    letter-spacing:2px;
+    background-color:#fff;
+  }
 
-.top-wrapper {
-
-  background-image:url(../img/top.img.jpeg);
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
-  height:850px;
+  .top-wrapper {
+    background-color:#fc4632;
+    height:850px;
     display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-#top-font {
-    padding:30px;
-    letter-spacing: .08em;
-    line-height:1.5;
-    font-size: 50px;
-    color:rgba(255,255,255,1);
-    font-family: 'Baloo Bhai', cursive;
-
-}
-
-.nav-font{
-    font-family: 'Baloo Bhai', cursive;
-}
-
-
-.dropdown-toggle {
-  border-color:blue;
-
+    justify-content: center;
+    align-items: center;
   
-  background-color: #fff;
-}
+  }
+  
+  #top-font {
+      padding:30px;
+      letter-spacing: .08em;
+      line-height:1.5;
+      font-size: 50px;
+      color:rgba(255,255,255,1);
+      font-family: 'Baloo Bhai', cursive;
+  
+  }
+  
+  .dropdown-toggle {
+    border-color:blue;
+  
+    
+    background-color: #fff;
+  }
+  
+  .signup-btn {
+    display: inline-block;
+    padding:20px 40px;
+    border: 2px solid #f92548;
+    background-color:#FFF;
+    font-size: 16px;
+    color: #f92548;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: .4s;
+    text-align:center;
+    opacity:0.9;
+  }
+  
+  .signup-btn:hover {
+    background-color: #f92548;
+    border-color: #f92548;
+    color: #FFF;
+    opacity:1;
+  
+  }
+  
+  .wrapper {
+    border:5px solid black;
+    padding-top:100px;
+    padding-bottom: 200px;
+    margin-top:50px;
+    margin-bottom:50px;
+    
+ }
 
-.signup-btn {
-  display: inline-block;
-  padding:15px 20px 11px 25px;
-  border: 2px solid #008489;
-  background-color:#FFF;
-  font-size: 16px;
-  color: #008489;
-  font-weight: bold;
-  border-radius: 10px;
-  transition: .4s;
-  text-align:center;
-  opacity:0.9;
-}
+ p{
+   color:#75797c;
+   letter-spacing:2px;
+ }
+ 
+ h2{
+  letter-spacing:6px;
+  font-weight:bold  ;
+ }
+ 
+ footer {
+   background-color:#f95316;
+   padding:60px 0 30px 0;
+ }
+ 
 
-.signup-btn:hover {
-  background-color: #008489;
-  border-color: #008489;
-  color: #FFF;
-  opacity:1;
-
+.blade1 {
+  background-color:#f9f9f9;
+  padding:50px;
 }
