@@ -4,7 +4,7 @@
     
     <h1 class="text-center mb-5">新規出品ページ</h1>
 
-    <div class="row">
+    <div class="row pb-5">
         <div class="col-sm-5 mx-auto">
                     
       
@@ -30,7 +30,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('price', '価格') !!}
-                    {!! Form::text('price', null, ['class' => 'form-control','placeholder' => '500円']) !!}
+                    {!! Form::text('price', null, ['class' => 'form-control','placeholder' => '500']) !!}
                 </div>
         
                 <div class="form-group">
@@ -38,7 +38,7 @@
                     {!! Form::textarea('content', null, ['class' => 'form-control','placeholder' => '１０種類のスパイスを三時間かけて煮込んで作りました！']) !!}
                 </div>
         
-                {!! Form::submit('出品する', ['class' => 'btn btn-info text-center mt-5']) !!}
+                {!! Form::submit('出品する', ['class' => 'btn btn-info text-center mt-3']) !!}
         
             {!! Form::close() !!}
         </div>

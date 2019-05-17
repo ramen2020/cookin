@@ -83,3 +83,7 @@
   background-color:#f9f9f9;
   padding:50px;
 }
+
+.form-control::-webkit-input-placeholder {
+	color: #d1d1d1;
+}

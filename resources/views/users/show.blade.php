@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center mt-5 mb-4">ユーザー情報</h1>
-    <div class="profile-wrapper border mb-5 px-3 py-3">
-        <div class="Mypicture"></div>
-        <h3>名前：{{ $user->name }}</h3>
+    
+    <div class="profile-wrapper border mb-5 p-3">
+        <h1 class="text-center mt-5 mb-4">{{ $user->name }}</h1>
+        <div class="Mypicture text-center">
+          <img src="{{ $user->user_picture }}" class="w-75 h-75 my-5">
+        </div>
          
-       
-        <!--コンテンツカラム追加-->
          <h3>簡単な自己紹介：{{ $user->content }}</h3>
         
             @if (Auth::id() == $user->id)
@@ -22,16 +22,19 @@
         <div class="d-flex">
             @include('favorite_follow.favorite_button', ['user' => $user])
              <p class="ml-3 mt-2">高評価： <span class="badge badge-secondary">{{ $count_followers }}</span></p>
-            
         </div>
             
     </div>
-    <div>
-        <h1 class="text-center mb-4">出品一覧</h1>
-        @if (count($deliveries) > 0)
-            @include('deliveries.deliveries', ['deliveries' => $deliveries])
-        @endif 
-        {{ $deliveries->render('pagination::bootstrap-4') }}
+    <div class="border mb-4 p-3">
+        <h1 class="text-center mt-5 mb-5">出品一覧</h1>
+        
+            @if (count($deliveries) > 0)
+                @include('deliveries.deliveries', ['deliveries' => $deliveries])
+            @else
+                <p class=text-center>ー只今、出品準備中です。ー</p>
+            @endif 
+            
+            {{ $deliveries->render('pagination::bootstrap-4') }}
     </div>
                 
     

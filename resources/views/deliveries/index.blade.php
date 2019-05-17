@@ -18,7 +18,7 @@
         @endif
         
     
-      <h1 class="text-center mb-3">新着投稿一覧</h1>
+      <h1 class="text-center my-5">新着投稿一覧</h1>
         @include('deliveries.deliveries', ['deliveries' => $deliveries])
         
         
