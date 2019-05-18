@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Delivery;
@@ -9,33 +10,43 @@ use App\User;
 use App\Message;
 
 
+
 class DeliveriesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         
         if (\Auth::check()) {
-         // ログイン時の処理
-         
-         //全てのユーザーの出品一覧にする
-         
-            $data = [];
-            $user = \Auth::user();
-            $deliveries = Delivery::orderBy('created_at', 'desc')->paginate(20);
-            
-            $data = [
-                'user' => $user,
-                'deliveries' => $deliveries,
-            ];
-        
-        
+   
+           $delivery_name = $request->get('delivery_name');
+           $delivery_place = $request->get('delivery_place');
+           $query = Delivery::query();
+           
+          	if (!empty($delivery_name)) {
+          	    
+        		$query->where('name', 'like', '%'.$delivery_name.'%');
+                                
+        	}if(!empty($delivery_place)) {
+        	    
+        		$query->where('place', 'like', '%'.$delivery_place.'%');
+        		
+        	}else{
+        	   
+        		$query ->orderBy('created_at', 'desc');
+        		
+        	}
+        	
+        	$deliveries = $query->paginate(12);
+        	
             return view('deliveries.index', [
                 'deliveries' => $deliveries,
+                'delivery_name' => $delivery_name,
+                'delivery_place' => $delivery_place,
+               
             ]);
          
         } else {
             
-         // ログインしていないときの処理
              return view('welcome');
         }
   
@@ -72,10 +83,10 @@ class DeliveriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:20',
+            'name' => 'required|max:16',
             'content' => 'required|max:500',
             'price' => 'required|max:100000|numeric',
-            'place' => 'required|max:20',
+            'place' => 'required|max:16',
         ]);
         
         $file = $request->file('file');
@@ -109,10 +120,10 @@ class DeliveriesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' =>'required|max:20',
+            'name' =>'required|max:16',
             'content' => 'required|max:500',
             'price' => 'required|max:100000|numeric',
-            'place' => 'required|max:20',
+            'place' => 'required|max:16',
         ]);
         
         
@@ -145,6 +156,5 @@ class DeliveriesController extends Controller
 
         return redirect('/')->with('flash_message', '出品を削除しました。');
     }
-    
     
 }

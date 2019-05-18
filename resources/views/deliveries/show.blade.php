@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="border mb-5 px-5 py-4">
+    <div class="border mb-5 px-3 py-4">
     
         <h1 class="text-center my-5">{{ $delivery->name }}</h1>
                
@@ -25,7 +25,7 @@
             <div>
                  @if (Auth::id() == $delivery->user_id)
                     {!! Form::open(['route' => ['deliveries.destroy', $delivery->id], 'method' => 'delete']) !!}
-                        {!! link_to_route('deliveries.edit', 'この出品を編集', ['id' => $delivery->id], ['class' => 'btn btn-light mr-3']) !!}
+                        {!! link_to_route('deliveries.edit', '出品編集', ['id' => $delivery->id], ['class' => 'btn btn-light mr-3']) !!}
                         {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm']) !!}
                     {!! Form::close() !!}
                 @endif
@@ -35,36 +35,7 @@
                     
                     <!--コメント機能-->
     <div class="border px-5 py-4">           
-        <h3 class="text-center mt-5 mb-5">コメント一覧</h3>
-         @if (count($messages) > 0)
-           @foreach ($messages as $message)
-                <div class="border-top p-4">
-                    <div class="d-flex">
-                        <p class="mr-3">名前：{{ $message->user_id }}</p>
-                        <time class="text-secondary">
-                            {{ $message->created_at->format('Y.m.d H:i') }}
-                        </time>
-                    </div>
-                    <div class="mt-2">
-                        
-                        <p>{!! $message->content !!}</p>
-                        
-                        <div class="text-right">
-                            @if (Auth::id() == $message->user_id)
-                                {!! Form::open(['route' => ['messages.destroy', $message->id], 'method' => 'delete']) !!}
-                                    {!! Form::submit('削除する', ['class' => 'btn btn-danger btn-sm']) !!}
-                                {!! Form::close() !!}
-                            @endif
-                        </div>
-                        
-                    </div>
-                </div>
-               
-    
-            @endforeach
-        @endif    
-              {{ $messages->render('pagination::bootstrap-4') }}
-            
+        @include('messages.messages', ['messages' => $messages])
           
         {!! Form::model($messages, ['route' => 'messages.store']) !!}
         　

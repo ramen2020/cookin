@@ -25,12 +25,6 @@
   
   }
   
-  .dropdown-toggle {
-    border-color:blue;
-  
-    
-    background-color: #fff;
-  }
   
   .signup-btn {
     display: inline-block;
@@ -87,3 +81,5 @@
 .form-control::-webkit-input-placeholder {
 	color: #d1d1d1;
 }
+
+

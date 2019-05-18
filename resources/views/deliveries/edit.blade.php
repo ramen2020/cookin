@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="row">
-        <h1>マイプロファイルへんしゅうがめん</h1>
+        <h1>出品編集</h1>
         <div class="profile-wrapper">
-            <div class="Mypicture"></div>
+            
              {!! Form::model($delivery, ['route' => ['deliveries.update', $delivery->id], 'method' => 'put','enctype' => 'multipart/form-data']) !!}
              
              <input type="file" name="file">
@@ -26,7 +26,7 @@
         
                 <div class="form-group">
                     {!! Form::label('content', '商品説明:') !!}
-                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
                 </div>
                  {!! Form::submit('更新', ['class' => 'btn btn-light']) !!}
                  

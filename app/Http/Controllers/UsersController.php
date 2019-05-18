@@ -96,7 +96,7 @@ class UsersController extends Controller
             'name' =>'required|max:15',
             'email' => 'required|max:150',
             'content' => 'required|max:500',
-           
+          
         ]);
         
         $file = $request->file('file');

@@ -1,8 +1,10 @@
-<ul class="list-unstyled row p-2">
-    @foreach ($deliveries as $delivery)
-        <li class="border col-md-2 pt-2 pb-5 mr-2 mb-2 rounded">
+ @if (count($deliveries) > 0)
+<ul class="list-unstyled row p-2 mb-5">
+   
+        @foreach ($deliveries as $delivery)
+        <li class="col-md-3 pt-2 pb-2  mb-2 rounded">
             
-            <img src="{{ $delivery->img }}" class="w-100 h-50 text-center rounded">
+            <img src="{{ $delivery->img }}" class="img111 w-75 h-75 text-center rounded">
             
             <div class="mt-3 mb-1">
                 <p> 商品<br>{!! $delivery->name !!}</p>
@@ -12,6 +14,12 @@
             </div>
 
         </li>
-    @endforeach
+        @endforeach
+
+    
+ 
 </ul>
+    @else
+        <p class="text-center">ー 出品が見つかりませんでした ー</p>
+    @endif
 {{ $deliveries->render('pagination::bootstrap-4') }}
