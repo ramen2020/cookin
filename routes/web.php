@@ -31,6 +31,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('deliveries', 'DeliveriesController');
     Route::resource('messages', 'MessagesController', ['only' => ['store','destroy']]);
     
+    
+  
+
+    
+    
+    
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('user.favorite');
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('user.unfavorite');

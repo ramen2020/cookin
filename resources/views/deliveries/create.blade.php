@@ -14,7 +14,7 @@
             {!! Form::model($delivery, ['route' => ['deliveries.store'], 'method' => 'post' ,'enctype' => 'multipart/form-data']) !!}
                 
                
-                <input type="file" name="file">
+                <input type="file" name="file" class="mb-3">
            
             
             
