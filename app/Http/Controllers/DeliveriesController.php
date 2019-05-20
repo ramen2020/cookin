@@ -83,10 +83,10 @@ class DeliveriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:16',
+            'name' => 'required|max:15',
             'content' => 'required|max:500',
             'price' => 'required|max:100000|numeric',
-            'place' => 'required|max:16',
+            'place' => 'required|max:15',
         ]);
         
         $file = $request->file('file');
@@ -120,10 +120,10 @@ class DeliveriesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' =>'required|max:16',
+            'name' =>'required|max:15',
             'content' => 'required|max:500',
             'price' => 'required|max:100000|numeric',
-            'place' => 'required|max:16',
+            'place' => 'required|max:15',
         ]);
         
         

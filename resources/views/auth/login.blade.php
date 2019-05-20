@@ -20,7 +20,7 @@
                         {!! Form::password('password', ['class' => 'form-control']) !!}
                     </div>
     
-                    {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
+                    {!! Form::submit('ログイン', ['class' => 'btn btn-info btn-block']) !!}
                 {!! Form::close() !!}
     
             </div>
