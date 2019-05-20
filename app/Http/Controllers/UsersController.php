@@ -18,8 +18,8 @@ class UsersController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $favorite_users = $user->feed_favorites()->orderBy('created_at', 'desc')->paginate(10);
-            $users = User::orderBy('id', 'desc')->paginate(10);
+            $favorite_users = $user->feed_favorites()->orderBy('created_at', 'desc')->paginate(4);
+            $users = User::orderBy('id', 'desc')->paginate(5);
 
 
             $data = [
@@ -36,7 +36,7 @@ class UsersController extends Controller
         
         $data = [];
         $user = User::find($id);
-        $deliveries = $user->deliveries()->orderBy('created_at', 'desc')->paginate(10);
+        $deliveries = $user->deliveries()->orderBy('created_at', 'desc')->paginate(12);
         $count_followers = $user->followers()->count();
        
         

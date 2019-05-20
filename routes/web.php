@@ -30,11 +30,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update','destroy']]);
     Route::resource('deliveries', 'DeliveriesController');
     Route::resource('messages', 'MessagesController', ['only' => ['store','destroy']]);
-    
-    
-  
 
-    
+/*    
+    Route::group(['prefix' => 'messages/{id}'], function () {
+        Route::post('store', 'MessagesController@store')->name('messages.store');
+  
+    });
+*/    
     
     
     Route::group(['prefix' => 'users/{id}'], function () {

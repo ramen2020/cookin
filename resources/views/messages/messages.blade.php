@@ -1,13 +1,16 @@
-      
-        <h3 class="text-center mt-5 mb-5">コメント一覧</h3>
+        <div class="text-center mt-5 mb-5">
+            <h3 class="mb-3">コメント一覧</h3>
+            <p class="text-center">ー 商品情報・交渉 ー</p>
+        </div>
          @if (count($messages) > 0)
            @foreach ($messages as $message)
                 <div class="border-top p-4">
-                    <div class="d-flex">
-                        <p class="mr-3">名前：{{ $message->user_id }}</p>
+                    <div>
                         <time class="text-secondary">
                             {{ $message->created_at->format('Y.m.d H:i') }}
                         </time>
+                        <p>>{{ $message->user->name }}</p>
+                        
                     </div>
                     <div class="mt-2">
                         

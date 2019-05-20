@@ -34,7 +34,7 @@
                         {!! Form::textarea('content',  old('content'), ['class' => 'form-control']) !!}
                     </div>
                   
-                    {!! Form::submit('新規登録', ['class' => 'btn btn-primary btn-block']) !!}
+                    {!! Form::submit('新規登録', ['class' => 'btn btn-info btn-block']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

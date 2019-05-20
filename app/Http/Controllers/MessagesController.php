@@ -20,11 +20,9 @@ class MessagesController extends Controller
         ]);
         
         
-        
         $request->user()->messages()->create([
             'content' => $request->content,
             'delivery_id' => $request->delivery_id,
-            'user_id' => $request->user_id,
         ]);
     	
     	 return back();
