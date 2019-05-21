@@ -6,6 +6,28 @@
     background-color:#fff;
   }
   
+  p{
+   color:#75797c;
+   letter-spacing:2px;
+  }
+  
+ h2{
+  letter-spacing:6px;
+  font-weight:bold  ;
+ }
+ 
+  .blade1 {
+    background-color:#f9f9f9;
+    padding:50px;
+    margin-top:100px;
+    margin-bottom:130px;
+  }
+  
+  ::placeholder {
+  color: #d1d1d1;
+  }
+
+
   .wrap {
    overflow:hidden;
   }
@@ -71,12 +93,8 @@
     padding-top:150px;
     padding-bottom:150px;
     
- }
+  }
 
- p{
-   color:#75797c;
-   letter-spacing:2px;
- }
 
   .second-font {
     color:#fc5e3f;
@@ -113,30 +131,6 @@
     color:#ffcf42;
     padding:20px;
   }
- 
- h2{
-  letter-spacing:6px;
-  font-weight:bold  ;
- }
- 
- footer {
-   background-color:#fc5e3f;
-   padding:60px 0 30px 0;
- }
- 
-
-  .blade1 {
-    background-color:#f9f9f9;
-    padding:50px;
-    margin-top:100px;
-    margin-bottom:130px;
-  }
-  
-  
-  ::placeholder {
-  color: #d1d1d1;
-}
-
   
   .Mypicture {
     overflow: hidden;
@@ -161,7 +155,7 @@
 
   .img-cover{
     overflow: hidden;
-    width: 220px;
+    width: 200px;
     height: 200px;
     position: relative;
     margin:0 auto;
@@ -226,6 +220,11 @@
     border-radius:10px;
   }
   
+  footer {
+   background-color:#fc5e3f;
+   padding:60px 0 30px 0;
+  }
+  
   .footer-font {
     color:#fff;
   }
@@ -235,6 +234,7 @@
     transform : translate(0, 100px);
     transition : all 2000ms;
   }
+  
   .fadein.scrollin {
       opacity : 1;
       transform : translate(0, 0);
