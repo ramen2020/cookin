@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+        <link rel="stylesheet" href='css/style.css'>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        
     </head>
 
     <body>

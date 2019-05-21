@@ -29,11 +29,12 @@
     height:800px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
   
   }
   
   #top-font {
+    margin-top:150px;
       padding:30px;
       letter-spacing: .08em;
       line-height:1.5;
@@ -241,6 +242,10 @@
   
 
   @media (max-width:670px){
+    
+    #top-font {
+    margin-top:50px;
+    }
     
     .user-img {
       width:220px;
