@@ -125,6 +125,7 @@ class DeliveriesController extends Controller
             'content' => 'required|max:500',
             'price' => 'required|max:100000|numeric',
             'place' => 'required|max:15',
+             'file' => 'required|image',
         ]);
         
         

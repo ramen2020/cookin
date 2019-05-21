@@ -57,6 +57,7 @@ class UsersController extends Controller
             'name' =>'required|max:15',
             'email' =>'required|max:150',
             'content' => 'required|max:500',
+             'file' => 'required|image',
         ]);
         
         $file = $request->file('file');
@@ -96,6 +97,7 @@ class UsersController extends Controller
             'name' =>'required|max:15',
             'email' => 'required|max:150',
             'content' => 'required|max:500',
+             'file' => 'required|image',
           
         ]);
         
