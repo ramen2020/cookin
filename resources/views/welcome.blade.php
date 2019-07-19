@@ -76,7 +76,7 @@
                 
 
             
-            
+            <span class="scrollTopBtn" style="display: none;"></span>
         
         @include('commons.footer')
     @endif
