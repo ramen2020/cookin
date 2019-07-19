@@ -14,7 +14,7 @@
  h2{
   letter-spacing:6px;
   font-weight:bold  ;
- }
+  }
  
   .blade1 {
     background-color:#f9f9f9;
@@ -42,6 +42,29 @@
   .navbar-font:hover {
     color:white;
     text-decoration:none;
+  }
+  
+  .scrollTopBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .scrollTopBtn:before {
+    position: fixed;
+    bottom: 18px;
+    right: 22px;
+    width: 15px;
+    height: 15px;
+    border-top: 4px #999 solid;
+    border-left: 4px #999 solid;
+    transform: rotate(45deg);
+    cursor: pointer;
+    content: '';
   }
   
 
@@ -280,6 +303,29 @@
     
     .footer-font {
       font-size:10px;
+    }
+    
+    .scrollTopBtn {
+      position: fixed;
+      bottom: 10px;
+      right: 8px;
+      width: 22px;
+      height: 20px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    
+    .scrollTopBtn:before {
+      position: fixed;
+      bottom: 13px;
+      right: 13px;
+      width: 10px;
+      height: 10px;
+      border-top: 4px #999 solid;
+      border-left: 4px #999 solid;
+      transform: rotate(45deg);
+      cursor: pointer;
+      content: '';
     }
     
     
