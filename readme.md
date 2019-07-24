@@ -13,7 +13,7 @@
 画像アップロード機能 
 
 # 開発言語 
-HTML / CSS / PHP
+HTML / CSS / PHP / JavaScript
 
 # DB 
 MySQL
