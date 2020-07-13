@@ -1,11 +1,9 @@
 <header>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #fc5e3f;"> 
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #fc5e3f;">
         <a class="navbar-font ml-3" href="/">Cookin home</a>
-         
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">

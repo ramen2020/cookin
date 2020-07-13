@@ -2,38 +2,30 @@
 
 @section('content')
 
-    <div class="blade1">
-        <div class="mb-5">
-            <h1 class="text-center my-5">プロフィール</h1>
-        
-        
-            {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put' ,'enctype' => 'multipart/form-data']) !!}
-             
-                <h6 class="pl-3">プロフィール画像</h6>
-                <input type="file" name="file" class="mb-3 pl-3">
-             
-                <div class="form-group col-sm-10">
-                    {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                </div>
-                
-               <div class="form-group col-sm-10">
-                    {!! Form::label('email', 'メールアドレス') !!}
-                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                    
-                </div> 
-                
-                <div class="form-group col-sm-12">
-                    {!! Form::label('content', '簡単な自己紹介') !!}
-                    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-                </div>            
-  
-                 {!! Form::submit('変更する', ['class' => 'btn btn-info ml-4']) !!}
-                 
-            {!! Form::close() !!}
+<div class="blade1">
+    <div class="mb-5">
+        <h1 class="text-center my-5">プロフィール</h1>
+        {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put'
+            ,'enctype' => 'multipart/form-data']) !!}
+        <h6 class="pl-3">プロフィール画像</h6>
+        <input type="file" name="file" class="mb-3 pl-3">
+        <div class="form-group col-sm-10">
+            {!! Form::label('name', '名前') !!}
+            {!! Form::text('name', null, ['class' => 'form-control']) !!}
         </div>
+        <div class="form-group col-sm-10">
+            {!! Form::label('email', 'メールアドレス') !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group col-sm-12">
+            {!! Form::label('content', '簡単な自己紹介') !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+        </div>
+        {!! Form::submit('変更する', ['class' => 'btn btn-info ml-4']) !!}
+        {!! Form::close() !!}
     </div>
-   
-    
+</div>
+
+
 
 @endsection
